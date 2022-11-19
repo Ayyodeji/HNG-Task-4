@@ -35,7 +35,10 @@ jobs:
         run: npm version patch
         
       - name: Push new version
-        run: git push
+        run: |
+          git remote add origin https://github.com/Ayyodeji/CertificateGeneratorTask.git
+          git pull origin master --allow-unrelated-histories
+          git push -f origin master
       
       - name: Login to DockerHub Registry
         run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
