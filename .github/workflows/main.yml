@@ -37,7 +37,7 @@ jobs:
       - name: Push new version
         run: |
           git remote add origin https://github.com/Ayyodeji/CertificateGeneratorTask.git
-          git pull origin master --allow-unrelated-histories
+          git pull origin master #--allow-unrelated-histories
           git push -f origin master
       
       - name: Login to DockerHub Registry
